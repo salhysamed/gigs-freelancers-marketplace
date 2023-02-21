@@ -24,18 +24,9 @@
             
         </p>
         <ul class="flex">
-            @php
-            $tags = explode(",",$gig->tags);
-        @endphp
-        @foreach ($tags as $tag)
-                
-          
-            <li
-                class="bg-black text-white rounded-xl px-3 py-1 mr-2"
-            >
-                <a href="#">{{$tag}}</a>
-            </li>
-            @endforeach
+        
+      
+            <x-gig-tags :gig="$gig" />
             
         </ul>
         <div class="text-lg my-4">
