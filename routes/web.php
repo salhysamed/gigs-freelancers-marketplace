@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Gig;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/gigs', function(){
+
+    return view('gigs', [
+        'heading' => 'list of recent gigs',
+        'gigs' => Gig::all()
+    ]);
+
+});
+
+Route::get('/gigs/{gig}', function (Gig $gig) {
+    
+    if($gig) {
+
+        return view('gig',[
+            'gig' => $gig
+        ]);
+    } else {
+    
+    abort(404);
+    }
+
 });
