@@ -12,8 +12,10 @@ class GigController extends Controller
     public function index(){
     
         $gigs=Gig::latest()
-                        ->filter(request(['tag','search']))
-                        ->get();
+        ->filter(request(['tag','search']))
+        ->paginate(2);
+        //simplePage() to show next/prev. only
+        dd($gigs);
 
         return view('gigs.index', [
             'gigs' => $gigs
