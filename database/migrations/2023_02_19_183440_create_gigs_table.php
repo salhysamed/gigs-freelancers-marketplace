@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('company');
-            $table->string('type'); // remote, local
-            $table->longText('description');
-            $table->string('tags');
+            $table->longText('description')->nullable();
+            $table->string('tags')->nullable();
             $table->string('email');
-            $table->string('website');
-            $table->string('phone');
+            $table->string('website')->nullable();
+            $table->string('phone')->nullable();
             $table->string('location');
             $table->timestamps();
         });

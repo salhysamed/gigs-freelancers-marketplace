@@ -20,7 +20,6 @@ class GigFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'company' => $this->faker->company(),
-            'type' => 'gigType',
             'description' => $this->faker->paragraph(5),
             'tags' => $tags[rand(0,4)].','.$tags[rand(0,4)].','.$tags[rand(0,5)].','.$tags[rand(0,5)].','.$tags[rand(0,4)],
             'email' => $this->faker->CompanyEmail(),

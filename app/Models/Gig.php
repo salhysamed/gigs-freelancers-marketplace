@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Gig extends Model
 {
     use HasFactory;
+    
+    protected $fillable = ['title','company','location','phone','tags','email','webiste','description'];
+    // or add Model::unguard(); to AppServiceprovider inside boot() function
+    
     public function scopeFilter($query, array $filters){
         if($filters['tag'] ?? false){
             $query->where('tags', 'LIKE', '%'.request()->tag.'%');

@@ -19,8 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/gigs', [GigController::class,'index']);
+Route::get('/gigs/create',[GigController::class,'create']);
+Route::post('/gigs',[GigController::class,'store']);
 Route::get('/gigs/{gig}', [GigController::class,'show']);
-
 
 
 //index - show all listings
