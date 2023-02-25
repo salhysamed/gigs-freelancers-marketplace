@@ -16,12 +16,13 @@ class GigFactory extends Factory
      */
     public function definition(): array
     {
+        $tags = ['Laravel', 'developer', 'fullstack', 'gig','frontend','SQL'];
         return [
             'title' => $this->faker->sentence(),
             'company' => $this->faker->company(),
             'type' => 'gigType',
             'description' => $this->faker->paragraph(5),
-            'tags' => 'Laravel, developer, fullstack, gig',
+            'tags' => $tags[rand(0,4)].','.$tags[rand(0,4)].','.$tags[rand(0,5)].','.$tags[rand(0,5)].','.$tags[rand(0,4)],
             'email' => $this->faker->CompanyEmail(),
             'website' => $this->faker->url(),
             'phone' => $this->faker->phoneNumber(),
