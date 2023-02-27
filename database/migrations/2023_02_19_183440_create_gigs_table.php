@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('gigs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('company');
+            $table->string('title')->nullable();
+            $table->string('company')->nullable();
+            $table->string('logo')->nullable();
             $table->longText('description')->nullable();
             $table->string('tags')->nullable();
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->string('phone')->nullable();
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ class Gig extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title','company','location','phone','tags','email','webiste','description'];
+    protected $fillable = ['title','company','location','logo','phone','tags','email','website','description'];
     // or add Model::unguard(); to AppServiceprovider inside boot() function
     
     public function scopeFilter($query, array $filters){

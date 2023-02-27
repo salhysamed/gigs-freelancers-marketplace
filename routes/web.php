@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\GigController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Gig;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GigController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -15,8 +15,6 @@ class GigController extends Controller
         ->filter(request(['tag','search']))
         ->paginate(2);
         //simplePage() to show next/prev. only
-        dd($gigs);
-
         return view('gigs.index', [
             'gigs' => $gigs
         ]);
@@ -45,16 +43,28 @@ class GigController extends Controller
 
     // store new gig data
     public function store(Request $request){
-       
+       // dd($request);
+    
         $formFields = $request->validate([
             'title' => 'required', 
-            'company' => ['required', Rule::unique('gigs','company')],
-            'location' => 'required',
-            'email' =>['required','email']
+           'company' => ['required', Rule::unique('gigs','company')],
+           'location' => 'required',
+           'email' =>['required','email'],
+           'phone' => 'required',
+           'website' => 'required',
+           'description' => 'required',
+           'tags' => 'required'
+
         ]);
+
+        if($request->hasFile('logo')){
+        
+        $formFields['logo'] = $request->file('logo')->store('logos','public');
+        //dd($formFields);
+
+        }
         Gig::create($formFields);
 
-        
         return redirect('/gigs')->with('message', 'Gig created successfully');
 
 
